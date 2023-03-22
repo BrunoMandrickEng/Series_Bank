@@ -107,11 +107,16 @@ namespace Series_Bank
         //CODE       
         private void DrawMatrix()
         {
-            double Vx = Convert.ToDouble(textBox17.Text);
-            double Vy = Convert.ToDouble(textBox16.Text);
+            double Hs1 = Convert.ToDouble(textBox3.Text);
+            double Hs2 = Convert.ToDouble(textBox4.Text);
+            double Hp1 = Convert.ToDouble(textBox5.Text);
+            double Hp2 = Convert.ToDouble(textBox6.Text);
 
-            float cx0 = ((panel2.Size.Width-((float)Vx* 30)) / 2);
-            float cy0 = ((panel2.Size.Height- ((float)Vy* 30)) / 2);
+            double Vx = Convert.ToDouble(textBox5.Text);
+            double Vy = Convert.ToDouble(textBox3.Text);
+
+            float cx0 = ((panel2.Size.Width / 2)-((float)Vx)*10);
+            float cy0 = ((panel2.Size.Height / 2) - ((float)Vy * 10));
 
             Pen redPen = new Pen(Color.Red, 1);
             Pen bluePen = new Pen(Color.Blue, 1);
@@ -125,10 +130,13 @@ namespace Series_Bank
                     for (int x = 0; x < Vx; x++)
                     {
                         //     FillRectangle(Cor, Px, Py, Comp, alt);
-                        graph1.FillRectangle(bpen, cx0 + 6 + (x * 30), cy0 + (y * 30)-18, 2, 14);
-                        graph1.FillRectangle(bpen, cx0 + (x * 30), cy0 + (y * 30), 14, 2);
-                        graph1.FillRectangle(bpen, cx0 + (x * 30), cy0 + (y * 30)-4, 14, 2);
-                        graph1.FillRectangle(bpen, cx0 + 6 + (x * 30), cy0 + (y * 30), 2, 14);
+                        graph1.DrawString(""+x, new Font("Tahoma", 8), Brushes.Black, cx0 + (x * 20)+2, cy0-26);
+                        graph1.DrawString("" + y, new Font("Tahoma", 8), Brushes.Black, cx0 -15, cy0+(y * 20)-8);
+
+                        graph1.FillRectangle(Brushes.Black, cx0 + 6 + (x * 20), cy0 + (y * 20)-11, 2, 9);
+                        graph1.FillRectangle(Brushes.Black, cx0 + (x * 20), cy0 + (y * 20), 14, 2);
+                        graph1.FillRectangle(Brushes.Black, cx0 + (x * 20), cy0 + (y * 20)-4, 14, 2);
+                        graph1.FillRectangle(Brushes.Black, cx0 + 6 + (x * 20), cy0 + (y * 20), 2, 9);
                     }
             }            
             finally

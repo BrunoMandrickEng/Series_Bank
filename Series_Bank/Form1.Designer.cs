@@ -30,14 +30,14 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea9 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend9 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series41 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series42 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series43 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series44 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series45 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title9 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series21 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series22 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series23 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series24 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series25 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title5 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
@@ -47,6 +47,10 @@
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.textBox15 = new System.Windows.Forms.TextBox();
@@ -92,27 +96,19 @@
             this.ptToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.etToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.textBox16 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.textBox17 = new System.Windows.Forms.TextBox();
             this.toolStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -183,58 +179,58 @@
             // 
             // chart1
             // 
-            chartArea9.AxisX.MajorGrid.LineColor = System.Drawing.Color.Gray;
-            chartArea9.AxisX.MinorGrid.Enabled = true;
-            chartArea9.AxisX.MinorGrid.LineColor = System.Drawing.Color.LightGray;
-            chartArea9.AxisX2.LineColor = System.Drawing.Color.DarkGray;
-            chartArea9.AxisY.MajorGrid.LineColor = System.Drawing.Color.Gray;
-            chartArea9.AxisY.MinorGrid.Enabled = true;
-            chartArea9.AxisY.MinorGrid.LineColor = System.Drawing.Color.LightGray;
-            chartArea9.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea9);
+            chartArea5.AxisX.MajorGrid.LineColor = System.Drawing.Color.Gray;
+            chartArea5.AxisX.MinorGrid.Enabled = true;
+            chartArea5.AxisX.MinorGrid.LineColor = System.Drawing.Color.LightGray;
+            chartArea5.AxisX2.LineColor = System.Drawing.Color.DarkGray;
+            chartArea5.AxisY.MajorGrid.LineColor = System.Drawing.Color.Gray;
+            chartArea5.AxisY.MinorGrid.Enabled = true;
+            chartArea5.AxisY.MinorGrid.LineColor = System.Drawing.Color.LightGray;
+            chartArea5.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea5);
             this.chart1.Dock = System.Windows.Forms.DockStyle.Top;
-            legend9.BorderColor = System.Drawing.Color.Black;
-            legend9.DockedToChartArea = "ChartArea1";
-            legend9.Name = "Legend1";
-            this.chart1.Legends.Add(legend9);
+            legend5.BorderColor = System.Drawing.Color.Black;
+            legend5.DockedToChartArea = "ChartArea1";
+            legend5.Name = "Legend1";
+            this.chart1.Legends.Add(legend5);
             this.chart1.Location = new System.Drawing.Point(3, 3);
             this.chart1.Name = "chart1";
-            series41.ChartArea = "ChartArea1";
-            series41.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series41.Color = System.Drawing.Color.Blue;
-            series41.Legend = "Legend1";
-            series41.Name = "i(t)";
-            series42.ChartArea = "ChartArea1";
-            series42.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series42.Color = System.Drawing.Color.Red;
-            series42.Legend = "Legend1";
-            series42.Name = "I²t";
-            series43.ChartArea = "ChartArea1";
-            series43.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series43.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            series43.Legend = "Legend1";
-            series43.Name = "P(t)";
-            series44.ChartArea = "ChartArea1";
-            series44.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series44.Color = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            series44.Legend = "Legend1";
-            series44.Name = "E(t)";
-            series45.ChartArea = "ChartArea1";
-            series45.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series45.Color = System.Drawing.Color.Gold;
-            series45.Legend = "Legend1";
-            series45.Name = "V(t)";
-            this.chart1.Series.Add(series41);
-            this.chart1.Series.Add(series42);
-            this.chart1.Series.Add(series43);
-            this.chart1.Series.Add(series44);
-            this.chart1.Series.Add(series45);
+            series21.ChartArea = "ChartArea1";
+            series21.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series21.Color = System.Drawing.Color.Blue;
+            series21.Legend = "Legend1";
+            series21.Name = "i(t)";
+            series22.ChartArea = "ChartArea1";
+            series22.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series22.Color = System.Drawing.Color.Red;
+            series22.Legend = "Legend1";
+            series22.Name = "I²t";
+            series23.ChartArea = "ChartArea1";
+            series23.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series23.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            series23.Legend = "Legend1";
+            series23.Name = "P(t)";
+            series24.ChartArea = "ChartArea1";
+            series24.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series24.Color = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            series24.Legend = "Legend1";
+            series24.Name = "E(t)";
+            series25.ChartArea = "ChartArea1";
+            series25.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series25.Color = System.Drawing.Color.Gold;
+            series25.Legend = "Legend1";
+            series25.Name = "V(t)";
+            this.chart1.Series.Add(series21);
+            this.chart1.Series.Add(series22);
+            this.chart1.Series.Add(series23);
+            this.chart1.Series.Add(series24);
+            this.chart1.Series.Add(series25);
             this.chart1.Size = new System.Drawing.Size(868, 338);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
-            title9.Name = "Title1";
-            title9.Text = "Damped Discharge";
-            this.chart1.Titles.Add(title9);
+            title5.Name = "Title1";
+            title5.Text = "Damped Discharge";
+            this.chart1.Titles.Add(title5);
             this.chart1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.chart1_MouseClick);
             // 
             // tabPage2
@@ -250,13 +246,52 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.groupBox5);
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(868, 426);
             this.panel2.TabIndex = 0;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(2, 77);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(41, 13);
+            this.label20.TabIndex = 21;
+            this.label20.Text = "Parallel";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(2, 51);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(36, 13);
+            this.label3.TabIndex = 19;
+            this.label3.Text = "Series";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "H",
+            "Y",
+            "Δ"});
+            this.comboBox1.Location = new System.Drawing.Point(5, 19);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(104, 21);
+            this.comboBox1.TabIndex = 17;
+            this.comboBox1.Text = "Bank Connection";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(868, 426);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // panel1
             // 
@@ -280,7 +315,7 @@
             this.groupBox4.Controls.Add(this.label12);
             this.groupBox4.Controls.Add(this.label11);
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox4.Location = new System.Drawing.Point(0, 308);
+            this.groupBox4.Location = new System.Drawing.Point(0, 327);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(184, 86);
             this.groupBox4.TabIndex = 6;
@@ -344,7 +379,7 @@
             this.groupBox3.Controls.Add(this.textBox8);
             this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox3.Location = new System.Drawing.Point(0, 189);
+            this.groupBox3.Location = new System.Drawing.Point(0, 208);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(184, 119);
             this.groupBox3.TabIndex = 5;
@@ -443,9 +478,12 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.comboBox1);
             this.groupBox2.Controls.Add(this.textBox12);
+            this.groupBox2.Controls.Add(this.label20);
             this.groupBox2.Controls.Add(this.label15);
             this.groupBox2.Controls.Add(this.label13);
+            this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.textBox11);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.textBox7);
@@ -458,7 +496,7 @@
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox2.Location = new System.Drawing.Point(0, 74);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(184, 115);
+            this.groupBox2.Size = new System.Drawing.Size(184, 134);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Bank";
@@ -466,7 +504,7 @@
             // textBox12
             // 
             this.textBox12.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox12.Location = new System.Drawing.Point(142, 74);
+            this.textBox12.Location = new System.Drawing.Point(142, 114);
             this.textBox12.Name = "textBox12";
             this.textBox12.Size = new System.Drawing.Size(36, 13);
             this.textBox12.TabIndex = 10;
@@ -475,7 +513,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(142, 58);
+            this.label15.Location = new System.Drawing.Point(142, 98);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(15, 13);
             this.label15.TabIndex = 16;
@@ -484,7 +522,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(98, 58);
+            this.label13.Location = new System.Drawing.Point(98, 98);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(29, 13);
             this.label13.TabIndex = 15;
@@ -493,7 +531,7 @@
             // textBox11
             // 
             this.textBox11.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox11.Location = new System.Drawing.Point(101, 74);
+            this.textBox11.Location = new System.Drawing.Point(101, 114);
             this.textBox11.Name = "textBox11";
             this.textBox11.Size = new System.Drawing.Size(36, 13);
             this.textBox11.TabIndex = 9;
@@ -502,7 +540,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(130, 16);
+            this.label6.Location = new System.Drawing.Point(130, 35);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(27, 13);
             this.label6.TabIndex = 13;
@@ -511,7 +549,7 @@
             // textBox7
             // 
             this.textBox7.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox7.Location = new System.Drawing.Point(133, 32);
+            this.textBox7.Location = new System.Drawing.Point(133, 51);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(36, 13);
             this.textBox7.TabIndex = 6;
@@ -520,7 +558,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 94);
+            this.label5.Location = new System.Drawing.Point(6, 113);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(34, 13);
             this.label5.TabIndex = 11;
@@ -529,7 +567,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 81);
+            this.label4.Location = new System.Drawing.Point(6, 100);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(66, 13);
             this.label4.TabIndex = 10;
@@ -538,7 +576,7 @@
             // textBox6
             // 
             this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox6.Location = new System.Drawing.Point(48, 58);
+            this.textBox6.Location = new System.Drawing.Point(87, 77);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(36, 13);
             this.textBox6.TabIndex = 8;
@@ -547,25 +585,25 @@
             // textBox5
             // 
             this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox5.Location = new System.Drawing.Point(6, 58);
+            this.textBox5.Location = new System.Drawing.Point(45, 77);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(36, 13);
             this.textBox5.TabIndex = 7;
-            this.textBox5.Text = "3";
+            this.textBox5.Text = "21";
             // 
             // textBox4
             // 
             this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox4.Location = new System.Drawing.Point(48, 32);
+            this.textBox4.Location = new System.Drawing.Point(87, 51);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(36, 13);
             this.textBox4.TabIndex = 5;
-            this.textBox4.Text = "21";
+            this.textBox4.Text = "3";
             // 
             // textBox3
             // 
             this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox3.Location = new System.Drawing.Point(6, 32);
+            this.textBox3.Location = new System.Drawing.Point(45, 51);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(36, 13);
             this.textBox3.TabIndex = 4;
@@ -705,78 +743,6 @@
             this.vtToolStripMenuItem.Text = "V(t)";
             this.vtToolStripMenuItem.CheckedChanged += new System.EventHandler(this.chartmenustrip);
             // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "H",
-            "Y",
-            "Δ"});
-            this.comboBox1.Location = new System.Drawing.Point(143, 14);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(51, 21);
-            this.comboBox1.TabIndex = 17;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(868, 426);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox5.Controls.Add(this.label20);
-            this.groupBox5.Controls.Add(this.textBox17);
-            this.groupBox5.Controls.Add(this.label3);
-            this.groupBox5.Controls.Add(this.textBox16);
-            this.groupBox5.Controls.Add(this.comboBox1);
-            this.groupBox5.Location = new System.Drawing.Point(665, 3);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(200, 100);
-            this.groupBox5.TabIndex = 1;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Bank Characteriscs";
-            // 
-            // textBox16
-            // 
-            this.textBox16.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox16.Location = new System.Drawing.Point(53, 22);
-            this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(35, 13);
-            this.textBox16.TabIndex = 18;
-            this.textBox16.Text = "3";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 22);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(36, 13);
-            this.label3.TabIndex = 19;
-            this.label3.Text = "Series";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(6, 46);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(41, 13);
-            this.label20.TabIndex = 21;
-            this.label20.Text = "Parallel";
-            // 
-            // textBox17
-            // 
-            this.textBox17.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox17.Location = new System.Drawing.Point(53, 46);
-            this.textBox17.Name = "textBox17";
-            this.textBox17.Size = new System.Drawing.Size(35, 13);
-            this.textBox17.TabIndex = 20;
-            this.textBox17.Text = "4";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -798,6 +764,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
@@ -808,9 +775,6 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.contextMenuStrip1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -874,11 +838,8 @@
         private System.Windows.Forms.TextBox textBox15;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.TextBox textBox17;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox16;
     }
 }
 
