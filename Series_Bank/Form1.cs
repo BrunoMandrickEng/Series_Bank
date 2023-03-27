@@ -30,16 +30,16 @@ namespace Series_Bank
         {
             if (e.KeyCode == Keys.F5)
             {
-                damped_discharge();
+                main_calculus();
                 menustriprun();
-                DrawMatrix();
+                DrawBank();
             }
         }
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
-            damped_discharge();
+            main_calculus();
             menustriprun();
-            DrawMatrix();
+            DrawBank();
         }
         void chartmenustrip(object sender, EventArgs e)
         {
@@ -105,7 +105,7 @@ namespace Series_Bank
         }
 
         //CODE       
-        private void DrawMatrix()
+        private void DrawBank()
         {
             double Hs1 = Convert.ToDouble(textBox3.Text);
             double Hs2 = Convert.ToDouble(textBox4.Text);
@@ -115,9 +115,13 @@ namespace Series_Bank
             double Vx = Convert.ToDouble(textBox5.Text);
             double Vy = Convert.ToDouble(textBox3.Text);
 
-            float cx0 = ((panel2.Size.Width / 2)-((float)Vx)*10);
-            float cy0 = ((panel2.Size.Height / 2) - ((float)Vy * 10));
+            float x0 = (pictureBox1.Size.Width / 2);
+            float y0 = (pictureBox1.Size.Height / 2);
+            float x1 = (pictureBox1.Size.Width/2);
+            float y2 = (pictureBox1.Size.Height / 2);
 
+            double ss = 0;
+            double pp = 0;
             Pen redPen = new Pen(Color.Red, 1);
             Pen bluePen = new Pen(Color.Blue, 1);
             SolidBrush bpen = new SolidBrush(Color.Blue);
@@ -130,13 +134,66 @@ namespace Series_Bank
                     for (int x = 0; x < Vx; x++)
                     {
                         //     FillRectangle(Cor, Px, Py, Comp, alt);
-                        graph1.DrawString(""+x, new Font("Tahoma", 8), Brushes.Black, cx0 + (x * 20)+2, cy0-26);
-                        graph1.DrawString("" + y, new Font("Tahoma", 8), Brushes.Black, cx0 -15, cy0+(y * 20)-8);
 
-                        graph1.FillRectangle(Brushes.Black, cx0 + 6 + (x * 20), cy0 + (y * 20)-11, 2, 9);
-                        graph1.FillRectangle(Brushes.Black, cx0 + (x * 20), cy0 + (y * 20), 14, 2);
-                        graph1.FillRectangle(Brushes.Black, cx0 + (x * 20), cy0 + (y * 20)-4, 14, 2);
-                        graph1.FillRectangle(Brushes.Black, cx0 + 6 + (x * 20), cy0 + (y * 20), 2, 9);
+                        graph1.DrawString("" + x, new Font("Tahoma", 8), Brushes.Black, (x0-((float)(Vx*20))) + (((float)x) * 20) - 14, y0 - ((float)(Vy * 20)) - 8);        // Axis x elements
+                        graph1.DrawString("" + y, new Font("Tahoma", 8), Brushes.Black, (x0 - ((float)(Vx * 20)))- 30, (y0 - ((float)(Vy * 20))) + (((float)y) * 20)+11);       // Axis y elements
+
+                        graph1.FillRectangle(Brushes.Black, ((float)(x0 - (Vx * 20))) - 28, (y0 - ((float)(Vy * 20)) + 8), (20 * ((float)Vx)), 2);   // HV busbar
+
+                        graph1.FillRectangle(Brushes.Black, x0 - 30 - (x * 20), y0 - (y * 20) - 11, 2, 9);
+                        graph1.FillRectangle(Brushes.Black, x0 - 36 - (x * 20), y0 - (y * 20), 14, 2);
+                        graph1.FillRectangle(Brushes.Black, x0 - 36 - (x * 20), y0 - (y * 20) - 4, 14, 2);
+                        graph1.FillRectangle(Brushes.Black, x0 - 30 - (x * 20), y0 - (y * 20), 2, 9);
+
+                        graph1.FillRectangle(Brushes.Black, ((float)(x0 -10- (Vx * 20))), (y0 + 9), ((float)Vx*20)+7, 2);   // CT busbar
+
+                        Rectangle rect = new Rectangle(((int)x0)-3,((int)y0), 20, 20); // CT                        
+                        graph1.DrawEllipse(new Pen(Color.Black,2), rect);  
+                        graph1.DrawString("50", new Font("Tahoma", 8), Brushes.Black, x0, y0+3);
+                        ss = Vy;
+                        pp = Vx;
+                    }
+                for (int y = 0; y < Vy; y++)
+                    for (int x = 0; x < Vx; x++)
+                    {
+                        graph1.DrawString("" + (y+ss), new Font("Tahoma", 8), Brushes.Black, (x0 - ((float)(Vx * 20))) - 30, (y0) + (((float)y) * 20) + 14);       // Axis y elements                                            
+
+                        graph1.FillRectangle(Brushes.Black, x0 - 30 - (x * 20), y0 + (y * 20) + 11, 2, 9);
+                        graph1.FillRectangle(Brushes.Black, x0 - 36 - (x * 20), y0 + (y * 20) + 19, 14, 2);
+                        graph1.FillRectangle(Brushes.Black, x0 - 36 - (x * 20), y0 + (y * 20) + 23, 14, 2);
+                        graph1.FillRectangle(Brushes.Black, x0 - 30 - (x * 20), y0 + (y * 20) + 25, 2, 9);
+
+                        graph1.FillRectangle(Brushes.Black, ((float)(x0 - 10 - (Vx * 20))), (y0 + ((float)(Vy * 20)) + 12), ((float)Vx * 20) + 10, 2);   // CT busbar
+                    }
+
+                Vx = Convert.ToDouble(textBox6.Text);
+                Vy = Convert.ToDouble(textBox4.Text);
+                for (int y = 0; y < Vy; y++)
+                    for (int x = 0; x < Vx; x++)
+                    {
+                        graph1.DrawString("" + (x+pp), new Font("Tahoma", 8), Brushes.Black, x1 + (x * 20) + 38, y0 - ((float)(Vy * 20)) - 8);        // Axis x elements
+                        graph1.DrawString("" + (y), new Font("Tahoma", 8), Brushes.Black, (x1) + 22, (y0 - ((float)(Vy * 20))) + (y * 20) + 11);       // Axis y elements
+
+                        graph1.FillRectangle(Brushes.Black, ((float)(x1)) - 28, (y0 - ((float)(Vy * 20)) + 8), (20 * ((float)Vx)) + 52, 2);   // HV busbar
+
+                        graph1.FillRectangle(Brushes.Black, x1 + 42 + (x * 20), y0 - (y * 20) - 11, 2, 9);
+                        graph1.FillRectangle(Brushes.Black, x1 + 36 + (x * 20), y0 - (y * 20), 14, 2);
+                        graph1.FillRectangle(Brushes.Black, x1 + 36 + (x * 20), y0 - (y * 20) - 4, 14, 2);
+                        graph1.FillRectangle(Brushes.Black, x1 + 42 + (x * 20), y0 - (y * 20), 2, 9);
+
+                        graph1.FillRectangle(Brushes.Black, ((float)(x1 + 17)), (y0 + 9), ((float)Vx * 20) + 7, 2);   // CT busbar
+                    }
+                for (int y = 0; y < Vy; y++)
+                    for (int x = 0; x < Vx; x++)
+                    {
+                        graph1.DrawString("" + (y + ss), new Font("Tahoma", 8), Brushes.Black, (x1) + 22, (y0) + (((float)y) * 20) + 14);       // Axis y elements                                            
+
+                        graph1.FillRectangle(Brushes.Black, x1 + 42 + (x * 20), y0 + (y * 20) + 11, 2, 9);
+                        graph1.FillRectangle(Brushes.Black, x1 + 36 + (x * 20), y0 + (y * 20) + 19, 14, 2);
+                        graph1.FillRectangle(Brushes.Black, x1 + 36 + (x * 20), y0 + (y * 20) + 23, 14, 2);
+                        graph1.FillRectangle(Brushes.Black, x1 + 42 + (x * 20), y0 + (y * 20) + 25, 2, 9);
+
+                        graph1.FillRectangle(Brushes.Black, ((float)(x1)), (y0 + ((float)(Vy * 20)) + 12), ((float)Vx * 20) + 22, 2);   // CT busbar
                     }
             }            
             finally
@@ -207,10 +264,16 @@ namespace Series_Bank
             }
         }
 
-        
-        double ams, tmax, fn, fd, s, p, si, pi, jQ, Un, C,Cb, L, R, Ulim, D, U1dd;
+
+        double ams, tmax, fn, fd, s, p, si, pi, jQ, Un, C, Cb, L, R, Ulim, D, U1dd, Hs1, Hs2, Hp1, Hp2;
+
+        private void Form1_SizeChanged(object sender, EventArgs e)
+        {
+            DrawBank();
+        }
+
         double XC,alpha,W0,Wd,B1,B2,I1,I2;
-        async void damped_discharge()
+        async void main_calculus()
         {
             chart1.Series[0].Points.Clear();
             chart1.Series[1].Points.Clear();
@@ -220,15 +283,19 @@ namespace Series_Bank
             ams = Convert.ToDouble(textBox1.Text);
             tmax = Convert.ToDouble(textBox2.Text);
             fn = Convert.ToDouble(textBox10.Text);
-            s = Convert.ToDouble(textBox3.Text) + Convert.ToDouble(textBox5.Text);
+            s = Convert.ToDouble(textBox3.Text) + Convert.ToDouble(textBox4.Text);
             si = Convert.ToDouble(textBox13.Text);            
-            p = Convert.ToDouble(textBox4.Text) + Convert.ToDouble(textBox6.Text);
+            p = Convert.ToDouble(textBox5.Text) + Convert.ToDouble(textBox6.Text);
             pi = Convert.ToDouble(textBox14.Text);
             Ulim = Convert.ToDouble(textBox7.Text);
             jQ = Convert.ToDouble(textBox8.Text);
             Un = Convert.ToDouble(textBox9.Text);
             fd = Convert.ToDouble(textBox11.Text);
-            if(textBox15.Text != "")
+            Hs1 = Convert.ToDouble(textBox3.Text);
+            Hs2 = Convert.ToDouble(textBox4.Text);
+            Hp1 = Convert.ToDouble(textBox5.Text);
+            Hp2 = Convert.ToDouble(textBox6.Text);
+            if (textBox15.Text != "")
             {
                 C = Convert.ToDouble(textBox15.Text);
             }
@@ -290,6 +357,44 @@ namespace Series_Bank
             await Task.Delay(500);
             progressBar1.Value = 0;
             chart1.ChartAreas[0].AxisX.Maximum = tmax;
+
+            //-- Unbalance Calculus
+            dataGridView1.Rows.Clear();
+            dataGridView1.Columns.Clear();
+            dataGridView1.Columns.Add("DG1_C0", "Disconected Elements [Pi]");
+            dataGridView1.Columns.Add("DG1_C1", "Unabalance Current [A]");
+            dataGridView1.Columns.Add("DG1_C2", "Unit Overvoltage [V]");
+            dataGridView1.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            // H Bank
+
+            double[] x1 = new double[((int)pi)];
+            double[] x2 = new double[((int)pi)];
+            double[] x3 = new double[((int)pi)];
+            double[] x4 = new double[((int)pi)];
+            double[] xth = new double[((int)pi)];
+            double[] Cfault = new double[((int)pi)];
+            double[] Iunb = new double[((int)pi)];
+            double[] Vover = new double[((int)pi)];
+            double Hfault = 0;
+            double XCover = 0;
+            for (int x = 0; x < pi; x++)
+            {
+                Cfault[x] = (Cb * (pi-x) * (Cb * pi / (si - 1))) / (Cb * (pi-x) + (Cb * pi / (si - 1)));
+                Hfault = Math.Pow(C * Hp2, -1) * (Hs1 - 1);
+                XCover = Math.Pow(C/(Hs1 - 1), -1);
+                x1[x] = (1 / (2 * Math.PI * fn * (C*Hp2/Hs1)));                
+                x2[x] = (1 / (2 * Math.PI * fn * Math.Pow(Math.Pow(C * (Hp2 - 1) + (Cfault[x]), -1) + Hfault,-1)));
+                x3[x] = (1 / (2 * Math.PI * fn * (C * Hp1 / Hs1)));
+                x4[x] = (1 / (2 * Math.PI * fn * (C * Hp1 / Hs2)));
+                xth[x] = Math.Pow(Math.Pow(x1[x], -1) + Math.Pow(x2[x], -1), -1) + Math.Pow(Math.Pow(x3[x], -1) + Math.Pow(x4[x], -1), -1);//X1||X2 + X3||X4
+                Iunb[x] = ((x2[x]*(s * Un) / (x1[x] + x2[x])) - (x4[x]* (s * Un) / (x3[x] + x4[x]))) / xth[x];
+                Vover[x] = (((x2[x] / (x1[x] + x2[x])) * Un * s) / (1 / (2 * Math.PI * fn * ((Math.Pow(Math.Pow(Cfault[x], -1) + XCover, -1)))))) * (1 / (2 * Math.PI * fn * (Cfault[x])));
+                dataGridView1.Rows.Add(x, Math.Round(Iunb[x], 4), Math.Round(Vover[x]), 4);
+
+            }
+
+            //Final H bank
+
         }
     }    
 }
