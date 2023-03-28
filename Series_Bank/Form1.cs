@@ -25,6 +25,7 @@ namespace Series_Bank
         private void Form1_Load(object sender, EventArgs e)
         {
             this.KeyPreview = true;
+            comboBox1.SelectedItem = comboBox1.Items[0];
         }
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
@@ -130,71 +131,120 @@ namespace Series_Bank
             Graphics graph1 = Graphics.FromImage(bmp);
             try
             {
-                for (int y = 0; y < Vy; y++)
-                    for (int x = 0; x < Vx; x++)
-                    {
-                        //     FillRectangle(Cor, Px, Py, Comp, alt);
+                // H connection
+                if (comboBox1.SelectedItem == comboBox1.Items[0])
+                {
+                    
+                    for (int y = 0; y < Vy; y++)
+                        for (int x = 0; x < Vx; x++)
+                        {
+                            //     FillRectangle(Cor, Px, Py, Comp, alt);
 
-                        graph1.DrawString("" + x, new Font("Tahoma", 8), Brushes.Black, (x0-((float)(Vx*20))) + (((float)x) * 20) - 14, y0 - ((float)(Vy * 20)) - 8);        // Axis x elements
-                        graph1.DrawString("" + y, new Font("Tahoma", 8), Brushes.Black, (x0 - ((float)(Vx * 20)))- 30, (y0 - ((float)(Vy * 20))) + (((float)y) * 20)+11);       // Axis y elements
+                            graph1.DrawString("" + x, new Font("Tahoma", 8), Brushes.Black, (x0 - ((float)(Vx * 20))) + (((float)x) * 20) - 14, y0 - ((float)(Vy * 20)) - 8);        // Axis x elements
+                            graph1.DrawString("" + y, new Font("Tahoma", 8), Brushes.Black, (x0 - ((float)(Vx * 20))) - 30, (y0 - ((float)(Vy * 20))) + (((float)y) * 20) + 11);       // Axis y elements
 
-                        graph1.FillRectangle(Brushes.Black, ((float)(x0 - (Vx * 20))) - 28, (y0 - ((float)(Vy * 20)) + 8), (20 * ((float)Vx)), 2);   // HV busbar
+                            graph1.FillRectangle(Brushes.Black, ((float)(x0 - (Vx * 20))) - 28, (y0 - ((float)(Vy * 20)) + 8), (20 * ((float)Vx)), 2);   // HV busbar
 
-                        graph1.FillRectangle(Brushes.Black, x0 - 30 - (x * 20), y0 - (y * 20) - 11, 2, 9);
-                        graph1.FillRectangle(Brushes.Black, x0 - 36 - (x * 20), y0 - (y * 20), 14, 2);
-                        graph1.FillRectangle(Brushes.Black, x0 - 36 - (x * 20), y0 - (y * 20) - 4, 14, 2);
-                        graph1.FillRectangle(Brushes.Black, x0 - 30 - (x * 20), y0 - (y * 20), 2, 9);
+                            graph1.FillRectangle(Brushes.Black, x0 - 30 - (x * 20), y0 - (y * 20) - 11, 2, 9);
+                            graph1.FillRectangle(Brushes.Black, x0 - 36 - (x * 20), y0 - (y * 20), 14, 2);
+                            graph1.FillRectangle(Brushes.Black, x0 - 36 - (x * 20), y0 - (y * 20) - 4, 14, 2);
+                            graph1.FillRectangle(Brushes.Black, x0 - 30 - (x * 20), y0 - (y * 20), 2, 9);
 
-                        graph1.FillRectangle(Brushes.Black, ((float)(x0 -10- (Vx * 20))), (y0 + 9), ((float)Vx*20)+7, 2);   // CT busbar
+                            graph1.FillRectangle(Brushes.Black, ((float)(x0 - 10 - (Vx * 20))), (y0 + 9), ((float)Vx * 20) + 7, 2);   // CT busbar
 
-                        Rectangle rect = new Rectangle(((int)x0)-3,((int)y0), 20, 20); // CT                        
-                        graph1.DrawEllipse(new Pen(Color.Black,2), rect);  
-                        graph1.DrawString("50", new Font("Tahoma", 8), Brushes.Black, x0, y0+3);
-                        ss = Vy;
-                        pp = Vx;
-                    }
-                for (int y = 0; y < Vy; y++)
-                    for (int x = 0; x < Vx; x++)
-                    {
-                        graph1.DrawString("" + (y+ss), new Font("Tahoma", 8), Brushes.Black, (x0 - ((float)(Vx * 20))) - 30, (y0) + (((float)y) * 20) + 14);       // Axis y elements                                            
+                            Rectangle rect = new Rectangle(((int)x0) - 3, ((int)y0), 20, 20); // CT                        
+                            graph1.DrawEllipse(new Pen(Color.Black, 2), rect);
+                            graph1.DrawString("50", new Font("Tahoma", 8), Brushes.Black, x0, y0 + 3);
+                            ss = Vy;
+                            pp = Vx;
+                        }
+                    for (int y = 0; y < Vy; y++)
+                        for (int x = 0; x < Vx; x++)
+                        {
+                            graph1.DrawString("" + (y + ss), new Font("Tahoma", 8), Brushes.Black, (x0 - ((float)(Vx * 20))) - 30, (y0) + (((float)y) * 20) + 14);       // Axis y elements                                            
 
-                        graph1.FillRectangle(Brushes.Black, x0 - 30 - (x * 20), y0 + (y * 20) + 11, 2, 9);
-                        graph1.FillRectangle(Brushes.Black, x0 - 36 - (x * 20), y0 + (y * 20) + 19, 14, 2);
-                        graph1.FillRectangle(Brushes.Black, x0 - 36 - (x * 20), y0 + (y * 20) + 23, 14, 2);
-                        graph1.FillRectangle(Brushes.Black, x0 - 30 - (x * 20), y0 + (y * 20) + 25, 2, 9);
+                            graph1.FillRectangle(Brushes.Black, x0 - 30 - (x * 20), y0 + (y * 20) + 11, 2, 9);
+                            graph1.FillRectangle(Brushes.Black, x0 - 36 - (x * 20), y0 + (y * 20) + 19, 14, 2);
+                            graph1.FillRectangle(Brushes.Black, x0 - 36 - (x * 20), y0 + (y * 20) + 23, 14, 2);
+                            graph1.FillRectangle(Brushes.Black, x0 - 30 - (x * 20), y0 + (y * 20) + 25, 2, 9);
 
-                        graph1.FillRectangle(Brushes.Black, ((float)(x0 - 10 - (Vx * 20))), (y0 + ((float)(Vy * 20)) + 12), ((float)Vx * 20) + 10, 2);   // CT busbar
-                    }
+                            graph1.FillRectangle(Brushes.Black, ((float)(x0 - 10 - (Vx * 20))), (y0 + ((float)(Vy * 20)) + 12), ((float)Vx * 20) + 10, 2);   // CT busbar
+                        }
 
-                Vx = Convert.ToDouble(textBox6.Text);
-                Vy = Convert.ToDouble(textBox4.Text);
-                for (int y = 0; y < Vy; y++)
-                    for (int x = 0; x < Vx; x++)
-                    {
-                        graph1.DrawString("" + (x+pp), new Font("Tahoma", 8), Brushes.Black, x1 + (x * 20) + 38, y0 - ((float)(Vy * 20)) - 8);        // Axis x elements
-                        graph1.DrawString("" + (y), new Font("Tahoma", 8), Brushes.Black, (x1) + 22, (y0 - ((float)(Vy * 20))) + (y * 20) + 11);       // Axis y elements
+                    Vx = Convert.ToDouble(textBox6.Text);
+                    Vy = Convert.ToDouble(textBox4.Text);
+                    for (int y = 0; y < Vy; y++)
+                        for (int x = 0; x < Vx; x++)
+                        {
+                            graph1.DrawString("" + (x + pp), new Font("Tahoma", 8), Brushes.Black, x1 + (x * 20) + 38, y0 - ((float)(Vy * 20)) - 8);        // Axis x elements
+                            graph1.DrawString("" + (y), new Font("Tahoma", 8), Brushes.Black, (x1) + 22, (y0 - ((float)(Vy * 20))) + (y * 20) + 11);       // Axis y elements
 
-                        graph1.FillRectangle(Brushes.Black, ((float)(x1)) - 28, (y0 - ((float)(Vy * 20)) + 8), (20 * ((float)Vx)) + 52, 2);   // HV busbar
+                            graph1.FillRectangle(Brushes.Black, ((float)(x1)) - 28, (y0 - ((float)(Vy * 20)) + 8), (20 * ((float)Vx)) + 52, 2);   // HV busbar
 
-                        graph1.FillRectangle(Brushes.Black, x1 + 42 + (x * 20), y0 - (y * 20) - 11, 2, 9);
-                        graph1.FillRectangle(Brushes.Black, x1 + 36 + (x * 20), y0 - (y * 20), 14, 2);
-                        graph1.FillRectangle(Brushes.Black, x1 + 36 + (x * 20), y0 - (y * 20) - 4, 14, 2);
-                        graph1.FillRectangle(Brushes.Black, x1 + 42 + (x * 20), y0 - (y * 20), 2, 9);
+                            graph1.FillRectangle(Brushes.Black, x1 + 42 + (x * 20), y0 - (y * 20) - 11, 2, 9);
+                            graph1.FillRectangle(Brushes.Black, x1 + 36 + (x * 20), y0 - (y * 20), 14, 2);
+                            graph1.FillRectangle(Brushes.Black, x1 + 36 + (x * 20), y0 - (y * 20) - 4, 14, 2);
+                            graph1.FillRectangle(Brushes.Black, x1 + 42 + (x * 20), y0 - (y * 20), 2, 9);
 
-                        graph1.FillRectangle(Brushes.Black, ((float)(x1 + 17)), (y0 + 9), ((float)Vx * 20) + 7, 2);   // CT busbar
-                    }
-                for (int y = 0; y < Vy; y++)
-                    for (int x = 0; x < Vx; x++)
-                    {
-                        graph1.DrawString("" + (y + ss), new Font("Tahoma", 8), Brushes.Black, (x1) + 22, (y0) + (((float)y) * 20) + 14);       // Axis y elements                                            
+                            graph1.FillRectangle(Brushes.Black, ((float)(x1 + 17)), (y0 + 9), ((float)Vx * 20) + 7, 2);   // CT busbar
+                        }
+                    for (int y = 0; y < Vy; y++)
+                        for (int x = 0; x < Vx; x++)
+                        {
+                            graph1.DrawString("" + (y + ss), new Font("Tahoma", 8), Brushes.Black, (x1) + 22, (y0) + (((float)y) * 20) + 14);       // Axis y elements                                            
 
-                        graph1.FillRectangle(Brushes.Black, x1 + 42 + (x * 20), y0 + (y * 20) + 11, 2, 9);
-                        graph1.FillRectangle(Brushes.Black, x1 + 36 + (x * 20), y0 + (y * 20) + 19, 14, 2);
-                        graph1.FillRectangle(Brushes.Black, x1 + 36 + (x * 20), y0 + (y * 20) + 23, 14, 2);
-                        graph1.FillRectangle(Brushes.Black, x1 + 42 + (x * 20), y0 + (y * 20) + 25, 2, 9);
+                            graph1.FillRectangle(Brushes.Black, x1 + 42 + (x * 20), y0 + (y * 20) + 11, 2, 9);
+                            graph1.FillRectangle(Brushes.Black, x1 + 36 + (x * 20), y0 + (y * 20) + 19, 14, 2);
+                            graph1.FillRectangle(Brushes.Black, x1 + 36 + (x * 20), y0 + (y * 20) + 23, 14, 2);
+                            graph1.FillRectangle(Brushes.Black, x1 + 42 + (x * 20), y0 + (y * 20) + 25, 2, 9);
 
-                        graph1.FillRectangle(Brushes.Black, ((float)(x1)), (y0 + ((float)(Vy * 20)) + 12), ((float)Vx * 20) + 22, 2);   // CT busbar
-                    }
+                            graph1.FillRectangle(Brushes.Black, ((float)(x1)), (y0 + ((float)(Vy * 20)) + 12), ((float)Vx * 20) + 22, 2);   // CT busbar
+                        }
+                }
+                // Y connection
+                if (comboBox1.SelectedItem == comboBox1.Items[1])
+                {
+                    for (int y = 0; y < Vy; y++)
+                        for (int x = 0; x < Vx; x++)
+                        {
+                            //     FillRectangle(Cor, Px, Py, Comp, alt);
+
+                            graph1.DrawString("" + x, new Font("Tahoma", 8), Brushes.Black, (x0 - ((float)(Vx * 20))) + (((float)x) * 20) - 14, y0 - ((float)(Vy * 20)) - 8);        // Axis x elements
+                            graph1.DrawString("" + y, new Font("Tahoma", 8), Brushes.Black, (x0 - ((float)(Vx * 20))) - 30, (y0 - ((float)(Vy * 20))) + (((float)y) * 20) + 11);       // Axis y elements
+
+                            graph1.FillRectangle(Brushes.Black, ((float)(x0 - (Vx * 20))) - 28, (y0 - ((float)(Vy * 20)) + 8), (20 * ((float)Vx)), 2);   // HV busbar
+
+                            graph1.FillRectangle(Brushes.Black, x0 - 30 - (x * 20), y0 - (y * 20) - 11, 2, 9);
+                            graph1.FillRectangle(Brushes.Black, x0 - 36 - (x * 20), y0 - (y * 20), 14, 2);
+                            graph1.FillRectangle(Brushes.Black, x0 - 36 - (x * 20), y0 - (y * 20) - 4, 14, 2);
+                            graph1.FillRectangle(Brushes.Black, x0 - 30 - (x * 20), y0 - (y * 20), 2, 9);
+
+                            graph1.FillRectangle(Brushes.Black, ((float)(x0 - 10 - (Vx * 20))), (y0 + 9), ((float)Vx * 20) + 7, 2);   // CT busbar
+
+                            Rectangle rect = new Rectangle(((int)x0) - 3, ((int)y0), 20, 20); // CT                        
+                            graph1.DrawEllipse(new Pen(Color.Black, 2), rect);
+                            graph1.DrawString("50", new Font("Tahoma", 8), Brushes.Black, x0, y0 + 3);
+                            ss = Vy;
+                            pp = Vx;
+                        }
+                    Vx = Convert.ToDouble(textBox5.Text);
+                    Vy = Convert.ToDouble(textBox3.Text);
+                    for (int y = 0; y < Vy; y++)
+                        for (int x = 0; x < Vx; x++)
+                        {
+                            graph1.DrawString("" + (x + pp), new Font("Tahoma", 8), Brushes.Black, x1 + (x * 20) + 38, y0 - ((float)(Vy * 20)) - 8);        // Axis x elements
+                            graph1.DrawString("" + (y), new Font("Tahoma", 8), Brushes.Black, (x1) + 22, (y0 - ((float)(Vy * 20))) + (y * 20) + 11);       // Axis y elements
+
+                            graph1.FillRectangle(Brushes.Black, ((float)(x1)) - 28, (y0 - ((float)(Vy * 20)) + 8), (20 * ((float)Vx)) + 52, 2);   // HV busbar
+
+                            graph1.FillRectangle(Brushes.Black, x1 + 42 + (x * 20), y0 - (y * 20) - 11, 2, 9);
+                            graph1.FillRectangle(Brushes.Black, x1 + 36 + (x * 20), y0 - (y * 20), 14, 2);
+                            graph1.FillRectangle(Brushes.Black, x1 + 36 + (x * 20), y0 - (y * 20) - 4, 14, 2);
+                            graph1.FillRectangle(Brushes.Black, x1 + 42 + (x * 20), y0 - (y * 20), 2, 9);
+
+                            graph1.FillRectangle(Brushes.Black, ((float)(x1 + 17)), (y0 + 9), ((float)Vx * 20) + 7, 2);   // CT busbar
+                        }
+                }
             }            
             finally
             {
@@ -267,6 +317,20 @@ namespace Series_Bank
 
         double ams, tmax, fn, fd, s, p, si, pi, jQ, Un, C, Cb, L, R, Ulim, D, U1dd, Hs1, Hs2, Hp1, Hp2;
 
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if((comboBox1.SelectedItem == comboBox1.Items[1])|| (comboBox1.SelectedItem == comboBox1.Items[2]))
+            {
+                textBox4.Enabled = false;
+                textBox6.Enabled = false;
+            }
+            else
+            {
+                textBox4.Enabled = true;
+                textBox6.Enabled = true;
+            }
+        }
+
         private void Form1_SizeChanged(object sender, EventArgs e)
         {
             DrawBank();
@@ -324,7 +388,7 @@ namespace Series_Bank
             {
                 t[i] = i * ams;
                 vt[i] = Math.Exp(-alpha * t[i]) * ((B1 * Math.Cos(Wd * t[i])) + (B2 * Math.Sin(Wd * t[i])));
-                it[i] = C*(Math.Exp(-alpha * t[i])*(-B1 * Wd * Math.Sin(Wd * t[i]) + (Wd * B2 * Math.Cos(Wd * t[i]))) - (alpha*Math.Exp(-alpha * t[i])*(B1 * Math.Cos(Wd * t[i]) + (B2 * Math.Sin(Wd * t[i])))));
+                it[i] = C * (Math.Exp(-alpha * t[i]) * (-B1 * Wd * Math.Sin(Wd * t[i]) + (Wd * B2 * Math.Cos(Wd * t[i]))) - (alpha * Math.Exp(-alpha * t[i]) * (B1 * Math.Cos(Wd * t[i]) + (B2 * Math.Sin(Wd * t[i])))));
                 pt[i] = vt[i] * it[i];
                 et[0] = 0;
                 i2t[i] = it[i] * it[i] * ams;
@@ -366,34 +430,34 @@ namespace Series_Bank
             dataGridView1.Columns.Add("DG1_C2", "Unit Overvoltage [V]");
             dataGridView1.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             // H Bank
-
-            double[] x1 = new double[((int)pi)];
-            double[] x2 = new double[((int)pi)];
-            double[] x3 = new double[((int)pi)];
-            double[] x4 = new double[((int)pi)];
-            double[] xth = new double[((int)pi)];
-            double[] Cfault = new double[((int)pi)];
-            double[] Iunb = new double[((int)pi)];
-            double[] Vover = new double[((int)pi)];
-            double Hfault = 0;
-            double XCover = 0;
-            for (int x = 0; x < pi; x++)
+            if (comboBox1.SelectedItem == comboBox1.Items[0])
             {
-                Cfault[x] = (Cb * (pi-x) * (Cb * pi / (si - 1))) / (Cb * (pi-x) + (Cb * pi / (si - 1)));
-                Hfault = Math.Pow(C * Hp2, -1) * (Hs1 - 1);
-                XCover = Math.Pow(C/(Hs1 - 1), -1);
-                x1[x] = (1 / (2 * Math.PI * fn * (C*Hp2/Hs1)));                
-                x2[x] = (1 / (2 * Math.PI * fn * Math.Pow(Math.Pow(C * (Hp2 - 1) + (Cfault[x]), -1) + Hfault,-1)));
-                x3[x] = (1 / (2 * Math.PI * fn * (C * Hp1 / Hs1)));
-                x4[x] = (1 / (2 * Math.PI * fn * (C * Hp1 / Hs2)));
-                xth[x] = Math.Pow(Math.Pow(x1[x], -1) + Math.Pow(x2[x], -1), -1) + Math.Pow(Math.Pow(x3[x], -1) + Math.Pow(x4[x], -1), -1);//X1||X2 + X3||X4
-                Iunb[x] = ((x2[x]*(s * Un) / (x1[x] + x2[x])) - (x4[x]* (s * Un) / (x3[x] + x4[x]))) / xth[x];
-                Vover[x] = (((x2[x] / (x1[x] + x2[x])) * Un * s) / (1 / (2 * Math.PI * fn * ((Math.Pow(Math.Pow(Cfault[x], -1) + XCover, -1)))))) * (1 / (2 * Math.PI * fn * (Cfault[x])));
-                dataGridView1.Rows.Add(x, Math.Round(Iunb[x], 4), Math.Round(Vover[x]), 4);
+                double[] x1 = new double[((int)pi)];
+                double[] x2 = new double[((int)pi)];
+                double[] x3 = new double[((int)pi)];
+                double[] x4 = new double[((int)pi)];
+                double[] xth = new double[((int)pi)];
+                double[] Cfault = new double[((int)pi)];
+                double[] Iunb = new double[((int)pi)];
+                double[] Vover = new double[((int)pi)];
+                double Hfault = 0;
+                double XCover = 0;
+                for (int x = 0; x < pi; x++)
+                {
+                    Cfault[x] = (Cb * (pi - x) * (Cb * pi / (si - 1))) / (Cb * (pi - x) + (Cb * pi / (si - 1)));
+                    Hfault = Math.Pow(C * Hp2, -1) * (Hs1 - 1);
+                    XCover = Math.Pow(C / (Hs1 - 1), -1);
+                    x1[x] = (1 / (2 * Math.PI * fn * (C * Hp2 / Hs1)));
+                    x2[x] = (1 / (2 * Math.PI * fn * Math.Pow(Math.Pow(C * (Hp2 - 1) + (Cfault[x]), -1) + Hfault, -1)));
+                    x3[x] = (1 / (2 * Math.PI * fn * (C * Hp1 / Hs1)));
+                    x4[x] = (1 / (2 * Math.PI * fn * (C * Hp1 / Hs2)));
+                    xth[x] = Math.Pow(Math.Pow(x1[x], -1) + Math.Pow(x2[x], -1), -1) + Math.Pow(Math.Pow(x3[x], -1) + Math.Pow(x4[x], -1), -1);//X1||X2 + X3||X4
+                    Iunb[x] = ((x2[x] * (s * Un) / (x1[x] + x2[x])) - (x4[x] * (s * Un) / (x3[x] + x4[x]))) / xth[x];
+                    Vover[x] = (((x2[x] / (x1[x] + x2[x])) * Un * s) / (1 / (2 * Math.PI * fn * ((Math.Pow(Math.Pow(Cfault[x], -1) + XCover, -1)))))) * (1 / (2 * Math.PI * fn * (Cfault[x])));
+                    dataGridView1.Rows.Add(x, Math.Round(Iunb[x], 4), Math.Round(Vover[x]), 4);
 
+                }
             }
-
-            //Final H bank
 
         }
     }    
